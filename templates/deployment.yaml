@@ -5,20 +5,17 @@ metadata:
   labels:
     app: {{ .Values.appName }}
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.appName }} 
+      app: frontend 
   template:
     metadata:
       labels:
-        app: {{ .Values.appName }}
+        app: frontend
     spec:
       containers:
-      - name: {{ .Values.appName }}
-        image: "834725375088.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.appVersion }}"
+      - name: frontend
+        image: 834725375088.dkr.ecr.us-east-1.amazonaws.com/frontend:9.0.3
         ports:
-        - containerPort: {{ .Values.appPortNumber }}
-        envFrom: 
-          - configMapRef: 
-              name: {{ .Values.appName }}
+        - containerPort: 80
