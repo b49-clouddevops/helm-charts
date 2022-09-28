@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.appName }}
+  name: {{ .values.appName }}
   labels:
-    app: {{ .Values.appName }}
+    app: {{ .values.appName }}
 spec:
-  replicas: {{ .Values.replicas }}
+  replicas: {{ .values.replicas }}
   selector:
     matchLabels:
-      app: {{ .Values.appName }} 
+      app: {{ .values.appName }} 
   template:
     metadata:
       labels:
-        app: {{ .Values.appName }}
+        app: {{ .values.appName }}
     spec:
       containers:
-      - name: {{ .Values.appName }}
-        image: 834725375088.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.appVersion }}
+      - name: {{ .values.appName }}
+        image: 834725375088.dkr.ecr.us-east-1.amazonaws.com/{{ .values.appName }}:{{ .values.appVersion }}
         ports:
-        - containerPort: {{ Values.appPort }}
+        - containerPort: {{ values.appPort }}
         envFrom: 
           - configMapRef: 
-              name: {{ .Values.appName }}
+              name: {{ .values.appName }}
