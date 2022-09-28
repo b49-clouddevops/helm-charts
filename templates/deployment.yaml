@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .values.appName}}
+  name: {{ .values.appName }}
   labels:
     app: cart
 spec:
@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: cart
-        image: 834725375088.dkr.ecr.us-east-1.amazonaws.com/{{ .values.appName }}:10.0.0
+        image: 834725375088.dkr.ecr.us-east-1.amazonaws.com/{{ .values.appName }}:{{ .values.appVersion }}
         ports:
-        - containerPort: 8080
+        - containerPort: {{}}
         envFrom: 
           - configMapRef: 
               name: cart-cm 
