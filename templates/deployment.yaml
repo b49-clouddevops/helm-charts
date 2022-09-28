@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: {{ .Values.appName }}
-        image: "{{ .Values.image.repository }}/{{ .Values.appName }}:{{ .Values.image.tag }}"
+        image: {{ .Values.image.repository }}/{{ .Values.appName }}:{{ .Values.image.tag }}
         ports:
         - containerPort: 80
