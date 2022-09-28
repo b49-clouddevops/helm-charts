@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   name: {{ .values.appName }}
   labels:
-    app: cart
+    app: {{ .values.appName }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cart 
+      app: {{ .values.appName }} 
   template:
     metadata:
       labels:
-        app: cart
+        app: {{ .values.appName }}
     spec:
       containers:
-      - name: cart
+      - name: {{ .values.appName }}
         image: 834725375088.dkr.ecr.us-east-1.amazonaws.com/{{ .values.appName }}:{{ .values.appVersion }}
         ports:
-        - containerPort: {{ values}}
+        - containerPort: {{ values.appPort }}
         envFrom: 
           - configMapRef: 
-              name: cart-cm 
+              name: {{ .values.appName }}
