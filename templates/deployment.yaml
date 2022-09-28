@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: "834725375088.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.appVersion }}"
+        image: "{{ .values.image.repository }}/{{ .Values.appName }}:{{ .Values.appVersion }}"
         ports:
         - containerPort: 80
