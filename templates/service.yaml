@@ -8,6 +8,6 @@ spec:
     app: {{ .Values.appName }}
   ports:
     - protocol: TCP
-      port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.port }}
+      port: {{ .Values.appPortNumber }}
+      targetPort: {{ .Values.appPortNumber }}
 
