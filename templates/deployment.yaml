@@ -19,4 +19,6 @@ spec:
         image: "834725375088.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.image.tag }}"
         ports:
         - containerPort: {{ .Values.appPortNumber }}
-
+        envFrom: 
+          - configMapRef: 
+              name:"{{ .Values.appName }}-cm"
