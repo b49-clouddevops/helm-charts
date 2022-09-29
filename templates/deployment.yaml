@@ -21,4 +21,4 @@ spec:
         - containerPort: {{ .Values.appPortNumber }}
         envFrom: 
           - configMapRef: 
-              name:"{{ .Values.appName }}-cm"
+              name: "{{ .Values.appName }}-cm"
